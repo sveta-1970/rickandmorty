@@ -1,0 +1,55 @@
+<!--
+    Зробити додаток Rick and Morty. Він має виводити інформацію про персонажів.
+    Макет. https://www.figma.com/file/9iLv5hOe86IEwwDAeOUBHR/Rick-and-Morty-(web-responsive)-(Community)?type=design&node-id=0-1&t=ZWZR6WuhTAd2B1m0-0
+    Виводимо на головну сторінку, де є 3 пункти:
+    1. Персонажі
+    2. Епізоди
+    3. Локації
+
+    (HW) Якщо була обрана категорія, то в середині категорії вказувати 
+    навігаційне меню з можливістю перейти в іншу категорію. Див.макет
+
+    При виборі меню показувати окрему сторінку з детальною інфорамацією.
+    Якщо на сторінці деталей обирається тип локації, або епізодів 
+    відктивати модальне вікно з даними. (HW-доделать)
+
+    HW - адаптивность через джс. изменять классы css при уменьшении экрана. стили в классах. через события слушать экран на изменение ширины. найти координату body
+
+    api: https://rickandmortyapi.com/documentation
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header container">
+        <a href="/">
+          <img id="logo" src="./images/logo-black1.png" alt="logo" />
+        </a>
+        <ul>
+          <li><a class="characters" href="/">Characters</a></li>
+          <li><a class="locations"href="/">Locations</a></li>
+          <li><a class="episodes" href="/">Episodes</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="box container">
+        <div class="banner">
+          <img src="./images/rick-and-morty2_1.png" alt="Rick and Morty" />
+        </div>
+        <div class="search">
+          <input type="search" placeholder="Filter by name" />
+        </div>
+        <div class="cards"></div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="./code/index.js"></script>
+  </body>
+</html>
