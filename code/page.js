@@ -149,3 +149,10 @@ function openInfo(card) {
   //document.querySelector(".modal-body").innerText = Object.entries(card);
   document.querySelector(".modal-body").innerHTML = patternModal;
 }
+
+//навігація на головну сторінку при натисканні на логотип
+
+const logo = document.querySelector("#logo");
+logo.addEventListener("click", () => {
+  const home = window.open(`../index.html`);
+});
