@@ -37,17 +37,14 @@ function createCard(element) {
   document.querySelector(".cards").append(card);
 }
 
-const logo = document.querySelector("#logo");
-logo.addEventListener("click", () => {
-  const home = window.open(`./index.html`);
-});
-const nav = document.querySelector("li > a");
-nav.addEventListener("click", () => {
-  if ((nav.target = ".characters")) {
-    const wind = window.open(`./page/index.html?characters`);
-  } else if ((nav.target = ".locations")) {
-    const wind = window.open(`./page/index.html?locations`);
-  } else if ((nav.target = ".episodes")) {
-    const wind = window.open(`./page/index.html?episodes`);
-  }
+//перехід на інші сторінки через навігацію в хедері
+const buttons = document.getElementsByTagName("button");
+Array.from(buttons).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    localStorage.clear();
+    let key = e.target.innerText.toLowerCase();
+    let categoryClicked = "";
+    localStorage.setItem(categoryClicked, key); //зберігаємо в локальному хранилищі на яку кнопку ми натиснули
+    const wind = window.open(`./page/index.html?${key}`); //відкриваємо відповідну сторінку
+  });
 });

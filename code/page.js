@@ -2,7 +2,26 @@
 const category = document.location.search.substr(1);
 //?category нужно теперь убрать вопрос, для этого исп. метод строки substr(1),
 //т.е. нам нужна инфо начиная с первого индекса
-document.querySelector("title").innerHTML = category;
+
+//перехід на інші сторінки через навігацію в хедері (зі сторінок категорій)
+const buttons = document.getElementsByTagName("button");
+Array.from(buttons).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    localStorage.clear();
+    let key = e.target.innerText.toLowerCase();
+    let categoryClicked = "";
+    localStorage.setItem(categoryClicked, key); //зберігаємо в локальному хранилищі на яку кнопку ми натиснули
+    const wind = window.open(`./index.html?${key}`); //відкриваємо відповідну сторінку категорії
+  });
+});
+
+if (category) {
+  document.querySelector("title").innerHTML = category;
+} else {
+  //навігація
+  category = localStorage.getItem(key);
+  document.querySelector("title").innerHTML = category;
+}
 
 //запрос на сервер
 async function req(url) {
